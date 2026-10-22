@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="E&amp;K Publishing is a boutique publishing service. We bring the experience, the team, and the craft that turn a manuscript into a finished book. You keep the rights, the decisions, and the creative direction.">
+<meta name="theme-color" content="#182B3A">
+<link rel="icon" href="logo.webp">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://publishwithek.com/">
+<meta property="og:title" content="E&amp;K Publishing">
+<meta property="og:description" content="Boutique publishing for authors who keep their rights, their decisions, and their creative direction.">
+<meta property="og:image" content="https://publishwithek.com/logo.webp">
+<meta property="og:image:alt" content="The E&amp;K Publishing mark: an open book above the letters E and K.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://publishwithek.com/">
+
+<title>E&amp;K Publishing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
+
+<style>
+/* Baseline the artifact host used to supply. */
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+/* Layout: one measured column on warm paper, opened and closed by full-bleed ink bands;
+   sections parted by hairline rules carrying a gold ampersand. */
+:root{
+  --ink:#182B3A;          /* brand: Deep Ink Navy */
+  --gold:#B69A62;         /* brand: Antique Gold */
+  --paper:#FAF7F1;        /* warm neutral, biased toward the gold */
+  --raised:#FFFFFF;
+  --fg:#1F3242;
+  --muted:#5D6D7A;
+  --rule:rgba(24,43,58,.16);
+  --band:#182B3A;         /* the ink bands, both themes */
+  --band-fg:#EFEAE0;
+  --band-muted:#A9B4BE;
+  --gold-on-band:#C9AE78;
+  --mark-blend:multiply;  /* logo is black-on-white line art */
+  --mark-filter:none;
+
+  --display:"Bodoni Moda","Didot","Times New Roman",serif;
+  --body:"Spectral",Georgia,"Times New Roman",serif;
+
+  --s--1:.8125rem;
+  --s-0:1.0625rem;
+  --s-1:1.25rem;
+  --s-2:clamp(1.5rem,1.15rem + 1.5vw,2.2rem);
+  --s-3:clamp(2rem,1.35rem + 2.9vw,3.4rem);
+  --s-4:clamp(2.6rem,1.4rem + 5.2vw,5rem);
+
+  --measure:34rem;
+  --wide:64rem;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111C25;
+    --raised:#172530;
+    --fg:#E9E3D9;
+    --muted:#96A4B0;
+    --rule:rgba(233,227,217,.16);
+    --band:#0C151D;
+    --gold:#C9AE78;
+    --mark-blend:screen;
+    --mark-filter:invert(1);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111C25;
+  --raised:#172530;
+  --fg:#E9E3D9;
+  --muted:#96A4B0;
+  --rule:rgba(233,227,217,.16);
+  --band:#0C151D;
+  --gold:#C9AE78;
+  --mark-blend:screen;
+  --mark-filter:invert(1);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--fg);
+  font-family:var(--body);
+  font-size:var(--s-0);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1.08}
+p{margin:0}
+a{color:inherit}
+
+.wrap{
+  width:100%;
+  max-width:var(--wide);
+  margin-inline:auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+.band{background:var(--band);color:var(--band-fg)}
+
+.eyebrow{
+  font-family:var(--display);
+  font-size:var(--s--1);
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0;
+}
+.band .eyebrow{color:var(--gold-on-band)}
+
+/* ── Hero ───────────────────────────────────────────── */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{padding-block:clamp(3rem,7vw,5.5rem) clamp(3.5rem,8vw,6rem);position:relative;z-index:1}
+.hero__amp{
+  position:absolute;
+  right:-.14em;top:50%;
+  transform:translateY(-48%);
+  font-family:var(--display);
+  font-style:italic;
+  font-size:min(62vw,34rem);
+  line-height:.72;
+  color:var(--gold-on-band);
+  opacity:.1;
+  pointer-events:none;
+  user-select:none;
+  z-index:0;
+}
+.mark{display:block;mix-blend-mode:var(--mark-blend);filter:var(--mark-filter)}
+.mark--ink{mix-blend-mode:screen;filter:invert(1)}
+.hero__mark{width:clamp(150px,20vw,228px);height:auto;margin-bottom:clamp(1.75rem,4vw,2.75rem)}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.thesis{
+  font-size:var(--s-4);
+  letter-spacing:-.015em;
+  max-width:14ch;
+}
+.thesis .amp{
+  font-style:italic;
+  font-weight:700;
+  color:var(--gold-on-band);
+  padding-inline:.04em;
+}
+.hero__sub{
+  margin-top:1.5rem;
+  max-width:33rem;
+  font-size:var(--s-1);
+  font-weight:300;
+  color:var(--band-fg);
+  line-height:1.55;
+}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.9rem 1.25rem;margin-top:2.25rem}
+.btn{
+  display:inline-block;
+  font-family:var(--display);
+  font-size:var(--s--1);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:.85em 1.6em;
+  border:1px solid var(--gold-on-band);
+  color:var(--gold-on-band);
+  transition:background-color .25s ease,color .25s ease;
+}
+.btn:hover{background:var(--gold-on-band);color:var(--band)}
+.btn--plain{border-color:transparent;padding-inline:0;color:var(--band-muted)}
+.btn--plain:hover{background:none;color:var(--band-fg);border-bottom-color:var(--band-fg)}
+
+/* ── Facts ──────────────────────────────────────────── */
+.facts{border-bottom:1px solid var(--rule)}
+.facts .wrap{
+  padding-block:clamp(2rem,4vw,3rem);
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
+  gap:2rem 2.5rem;
+}
+.fact{display:flex;flex-direction:column;gap:.35rem}
+.fact__n{
+  font-family:var(--display);
+  font-size:var(--s-3);
+  line-height:1;
+  color:var(--gold);
+  font-variant-numeric:tabular-nums;
+}
+.fact__t{font-size:var(--s--1);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ── Generic section ────────────────────────────────── */
+section .wrap{padding-block:clamp(3.25rem,7vw,5.5rem)}
+.lede{font-size:var(--s-2);line-height:1.35;font-family:var(--display);max-width:22ch}
+.head{display:flex;flex-direction:column;gap:1rem;max-width:var(--measure)}
+.prose{max-width:var(--measure);display:flex;flex-direction:column;gap:1.1rem;color:var(--fg)}
+.prose .quiet{color:var(--muted)}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(2rem,5vw,4rem)}
+@media (min-width:860px){.split{grid-template-columns:minmax(0,22rem) minmax(0,1fr)}}
+
+.keeps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.keeps li{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:.25rem 1.25rem;
+  padding-block:1.15rem;
+  border-top:1px solid var(--rule);
+}
+.keeps li:last-child{border-bottom:1px solid var(--rule)}
+.keeps dt,.keeps b{
+  font-family:var(--display);
+  font-size:var(--s-1);
+  font-weight:500;
+  grid-column:1/-1;
+}
+.keeps span{grid-column:1/-1;color:var(--muted);max-width:40ch}
+
+/* ── Who we work with ───────────────────────────────── */
+.who{border-top:1px solid var(--rule);background:var(--raised)}
+.cards{
+  margin-top:clamp(2rem,4vw,3rem);
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:1px;
+  background:var(--rule);
+  border:1px solid var(--rule);
+}
+@media (min-width:720px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{background:var(--raised);padding:clamp(1.5rem,3vw,2.25rem);display:flex;flex-direction:column;gap:.85rem;min-width:0}
+.card__amp{font-family:var(--display);font-style:italic;font-size:1.9rem;line-height:1;color:var(--gold)}
+.card h3{font-size:var(--s-1);line-height:1.25}
+.card p{color:var(--muted);font-size:calc(var(--s-0) * .97)}
+
+/* ── Process ────────────────────────────────────────── */
+.process{border-top:1px solid var(--rule)}
+.steps{list-style:none;margin:clamp(2rem,4vw,3rem) 0 0;padding:0;counter-reset:step}
+.step{
+  display:grid;
+  grid-template-columns:3.25rem minmax(0,1fr);
+  gap:.4rem 1.5rem;
+  padding-block:clamp(1.5rem,3vw,2rem);
+  border-top:1px solid var(--rule);
+}
+.step:last-child{border-bottom:1px solid var(--rule)}
+.step__n{
+  font-family:var(--display);
+  font-size:var(--s--1);
+  letter-spacing:.1em;
+  color:var(--gold);
+  font-variant-numeric:tabular-nums;
+  padding-top:.45em;
+  grid-row:1/3;
+}
+.step h3{font-size:var(--s-2);letter-spacing:-.01em}
+.step p{color:var(--muted);max-width:44ch}
+@media (max-width:520px){
+  .step{grid-template-columns:minmax(0,1fr)}
+  .step__n{grid-row:auto;padding-top:0}
+}
+.process__close{
+  margin-top:2rem;
+  font-family:var(--display);
+  font-size:var(--s-1);
+  font-style:italic;
+  color:var(--fg);
+  max-width:40ch;
+}
+
+/* ── Us ─────────────────────────────────────────────── */
+.us{border-top:1px solid var(--rule);background:var(--raised)}
+.names{font-size:var(--s-3);letter-spacing:-.02em}
+.names .amp{font-style:italic;color:var(--gold)}
+.pups{
+  margin-top:1.75rem;
+  padding:1.25rem 1.5rem;
+  border-left:2px solid var(--gold);
+  background:var(--paper);
+  color:var(--muted);
+  font-size:calc(var(--s-0) * .97);
+  max-width:34rem;
+}
+.pups b{font-family:var(--display);color:var(--fg);font-weight:500}
+
+/* ── Credo ──────────────────────────────────────────── */
+.credo{background:var(--band);color:var(--band-fg);overflow:hidden}
+.credo .wrap{padding-block:clamp(3.5rem,8vw,6rem)}
+.credo__list{list-style:none;margin:1.75rem 0 0;padding:0;display:flex;flex-direction:column}
+.credo__list li{
+  font-family:var(--display);
+  font-size:var(--s-3);
+  line-height:1.15;
+  letter-spacing:-.015em;
+  padding-block:clamp(.9rem,2vw,1.3rem);
+  border-top:1px solid rgba(201,174,120,.3);
+}
+.credo__list li:last-child{border-bottom:1px solid rgba(201,174,120,.3)}
+.credo__list em{font-style:italic;color:var(--gold-on-band)}
+.credo__list .big{font-size:1.5em;line-height:.8;vertical-align:-.1em}
+.credo__note{margin-top:1.75rem;color:var(--band-muted);max-width:38rem;font-weight:300}
+
+/* ── Contact ────────────────────────────────────────── */
+.contact .wrap{padding-block:clamp(3.25rem,7vw,5.5rem)}
+.contact h2{font-size:var(--s-3);letter-spacing:-.02em;max-width:16ch}
+.contact .prose{margin-top:1.25rem}
+.reach{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.85rem 1.5rem;
+  margin-top:2rem;
+}
+.reach__addr{
+  font-family:var(--display);
+  font-size:var(--s-2);
+  letter-spacing:-.01em;
+  color:var(--fg);
+  text-decoration:none;
+  border-bottom:1px solid var(--gold);
+  padding-bottom:.1em;
+  transition:color .25s ease;
+  overflow-wrap:anywhere;
+}
+.reach__addr:hover{color:var(--gold)}
+.copy{
+  font-family:var(--display);
+  font-size:var(--s--1);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  background:none;
+  border:1px solid var(--rule);
+  padding:.75em 1.3em;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:color .25s ease,border-color .25s ease;
+}
+.copy:hover{color:var(--gold);border-color:var(--gold)}
+.copy[data-done]{color:var(--gold);border-color:var(--gold)}
+
+/* ── Footer ─────────────────────────────────────────── */
+footer{border-top:1px solid var(--rule)}
+footer .wrap{
+  padding-block:2.5rem 3rem;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:1.5rem 2rem;
+}
+.foot__mark{width:118px;height:auto}
+.foot__meta{color:var(--muted);font-size:var(--s--1);letter-spacing:.06em}
+
+/* ── Load-in ────────────────────────────────────────── */
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .9s cubic-bezier(.22,.7,.3,1) both}
+  .rise:nth-child(2){animation-delay:.06s}
+  .hero__sub{animation-delay:.14s}
+  .hero__cta{animation-delay:.2s}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="hero band">
+  <div class="hero__amp" aria-hidden="true">&amp;</div>
+  <div class="wrap">
+    <h1 class="visually-hidden">E&amp;K Publishing</h1>
+    <img class="mark mark--ink hero__mark rise" src="logo.webp" alt="E&amp;K Publishing" width="1536" height="1024">
+    <p class="thesis rise">There is always a <span class="amp">YES&nbsp;&amp;</span></p>
+    <p class="hero__sub rise">A boutique publishing service for authors who intend to keep what they make. We bring the experience, the team, and the craft that turn a manuscript into a book worth putting on a shelf. You keep the rights, the decisions, and the creative direction.</p>
+    <div class="hero__cta rise">
+      <a class="btn" href="#start">Start a conversation</a>
+      <a class="btn btn--plain" href="#how">See how we work</a>
+    </div>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><span class="fact__n">8</span><span class="fact__t">Years at this work</span></div>
+    <div class="fact"><span class="fact__n">100%</span><span class="fact__t">Rights kept by the author</span></div>
+    <div class="fact"><span class="fact__n">1</span><span class="fact__t">Book at the centre of every call</span></div>
+  </div>
+</div>
+
+<section class="premise">
+  <div class="wrap split">
+    <div class="head">
+      <p class="eyebrow">The premise</p>
+      <h2 class="lede">Your book stays yours.</h2>
+    </div>
+    <div>
+      <div class="prose">
+        <p>Traditional publishing asks an author to hand over the thing they made in exchange for help making it. We don't think that trade is necessary. We do the work a publishing house does &mdash; editorial, design, production, the unglamorous logistics &mdash; and you keep what a publishing house usually takes.</p>
+        <p class="quiet">That isn't a loophole or a technicality. It's the whole arrangement, written down at the start of the project.</p>
+      </div>
+      <ul class="keeps">
+        <li><b>Full rights</b><span>The work is yours to license, adapt, reprint, or walk away with.</span></li>
+        <li><b>The final say</b><span>Every decision reaches you with our recommendation already attached. We tell you plainly what we would do and why. Then you choose, and nobody you have never met gets a vote.</span></li>
+        <li><b>Your creative direction</b><span>The voice, the vision, and what the book is for are yours and stay yours.</span></li>
+        <li><b>Our professional judgment</b><span>Eight years of production experience goes into the parts a reader notices only when they are wrong &mdash; typography, structure, pacing, the cover, the quiet conventions of a finished book. We consult on every one of them so that what you publish holds its own beside anything from a major house.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="who">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Who we work with</p>
+      <h2 class="lede">Four kinds of books, mostly.</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="card__amp" aria-hidden="true">&amp;</span>
+        <h3>People with something good to say</h3>
+        <p>The expertise is real and the reason to write it down is real. The book is how it finally reaches the people who need it.</p>
+      </article>
+      <article class="card">
+        <span class="card__amp" aria-hidden="true">&amp;</span>
+        <h3>People preserving something</h3>
+        <p>A family history, a company's story, a craft, a life. Written down now so the next generation inherits more than a rumour of it.</p>
+      </article>
+      <article class="card">
+        <span class="card__amp" aria-hidden="true">&amp;</span>
+        <h3>People changing the world</h3>
+        <p>One idea at a time, which is the only rate at which it has ever actually happened.</p>
+      </article>
+      <article class="card">
+        <span class="card__amp" aria-hidden="true">&amp;</span>
+        <h3>Companies with something on the record</h3>
+        <p>A founding story, a method worth teaching, or a hundred years of institutional knowledge held by people who are about to retire. A book does work no brochure has ever managed.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="how">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">How we work</p>
+      <h2 class="lede">Personalized, in the literal sense.</h2>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <span class="step__n" aria-hidden="true">01</span>
+        <h3>We start with your goals</h3>
+        <p>Every project begins with an individual consultation. Not a package to pick from &mdash; a conversation about what this book is for, who it needs to reach, and what success actually looks like to you.</p>
+      </li>
+      <li class="step">
+        <span class="step__n" aria-hidden="true">02</span>
+        <h3>We build a real timeline</h3>
+        <p>Thoughtful and realistic, which are the same thing. You'll know what happens when, what we need from you, and what we're doing while you wait.</p>
+      </li>
+      <li class="step">
+        <span class="step__n" aria-hidden="true">03</span>
+        <h3>We bring in the right people</h3>
+        <p>We work with a team of trusted professionals &mdash; editors, designers, proofreaders, production &mdash; so the finished book is the whole package and not just a manuscript in a cover.</p>
+      </li>
+      <li class="step">
+        <span class="step__n" aria-hidden="true">04</span>
+        <h3>We pave the way out</h3>
+        <p>A book's placement in the world is planned long before it gets there. Metadata, categories, format, timing, and the practical path to the readers it was written for.</p>
+      </li>
+    </ol>
+    <p class="process__close">Through all of it, the project is managed and you are supported. You should never have to wonder where your book is.</p>
+  </div>
+</section>
+
+<section class="us">
+  <div class="wrap split">
+    <div class="head">
+      <p class="eyebrow">Who we are</p>
+      <h2 class="names">Erin Neuhardt <span class="amp">&amp;</span><br>Kevin LeBlanc</h2>
+    </div>
+    <div>
+      <div class="prose">
+        <p>We're a married couple who run a small publishing service, which means your project is not being passed between departments. You work with us, and we've been doing this for eight years with a wide range of authors and companies &mdash; first books and fifth books, memoirs, business books, legacy projects, the ones nobody else knew how to categorize.</p>
+        <p class="quiet">Collaborative is the operative word. We'd rather say &ldquo;yes, and&rdquo; to your idea and figure out how than hand you a form.</p>
+      </div>
+      <p class="pups">Also on staff: <b>Maple</b> and <b>Willow</b>, two rescue pups, who attend every meeting, review nothing, and have never once missed a deadline they were aware of.</p>
+    </div>
+  </div>
+</section>
+
+<section class="credo">
+  <div class="wrap">
+    <p class="eyebrow">What we believe in</p>
+    <ul class="credo__list">
+      <li>Good books</li>
+      <li>The Oxford comma</li>
+      <li>A good <em>ampersand</em> <em class="big">&amp;</em></li>
+    </ul>
+    <p class="credo__note">Three things that look like small preferences and turn out to be the whole philosophy: make it worth reading, be precise about what you mean, and keep joining things together.</p>
+  </div>
+</section>
+
+<section class="contact" id="start">
+  <div class="wrap">
+    <p class="eyebrow">Start here</p>
+    <h2>Tell us about your book.</h2>
+    <div class="prose">
+      <p>Even if it's three chapters and a bad feeling about chapter four. The first conversation is about what you're trying to make and whether we're the right people to help you make it &mdash; no pitch, no package.</p>
+    </div>
+    <div class="reach">
+      <a class="reach__addr" id="email-addr" href="mailto:Erin@estudio.events">Erin@estudio.events</a>
+      <button class="copy" type="button" id="copy-email" data-email="Erin@estudio.events">Copy address</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img class="mark foot__mark" src="logo.webp" alt="E&amp;K Publishing" width="1536" height="1024">
+    <p class="foot__meta">Boutique publishing &mdash; Erin Neuhardt &amp; Kevin LeBlanc &mdash; Est. 2018</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy-email');
+  var addr=document.getElementById('email-addr');
+  if(!btn||!addr)return;
+  var label='Copy address';
+  function reset(ms){setTimeout(function(){btn.textContent=label;btn.removeAttribute('data-done');},ms);}
+  function fallback(){
+    try{
+      var r=document.createRange();
+      r.selectNodeContents(addr);
+      var sel=window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(r);
+      btn.textContent='Selected';
+      btn.setAttribute('data-done','');
+      reset(2500);
+    }catch(e){}
+  }
+  btn.addEventListener('click',function(){
+    try{
+      navigator.clipboard.writeText(btn.getAttribute('data-email')).then(function(){
+        btn.textContent='Copied';
+        btn.setAttribute('data-done','');
+        reset(2000);
+      },fallback);
+    }catch(e){fallback();}
+  });
+})();
+</script>
+
+</body>
+</html>

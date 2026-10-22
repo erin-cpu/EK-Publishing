@@ -9,7 +9,9 @@ no package manager, nothing to install.
 | --- | --- |
 | `index.html` | The whole site — markup, styles, and the script behind the "Copy address" button. |
 | `logo.webp` | The E&K mark. Used in the hero and the footer. |
+| `favicon.png` | The square mark, 256×256. Browser tab icon and iOS home-screen icon. |
 | `CNAME` | The custom domain, `publishwithek.com`. GitHub Pages reads this. |
+| `.github/workflows/deploy.yml` | Publishes the site to Pages on every push to `main`. |
 
 The logo is black line art on a white background. It is not transparent. The page handles that with
 CSS blend modes (`multiply` on the paper sections, `screen` with an inversion on the navy bands), so
@@ -30,10 +32,14 @@ Then visit <http://localhost:8000>.
 
 ## Publishing with GitHub Pages
 
-1. Push this repository to GitHub.
-2. In the repository, go to **Settings → Pages**.
-3. Under **Source**, choose **Deploy from a branch**, then branch `main` and folder `/ (root)`.
-4. Save. The site is live at `https://<your-username>.github.io/<repo-name>/` in a minute or two.
+Deployment is automatic. **Settings → Pages → Source** is set to **GitHub Actions**, and
+`.github/workflows/deploy.yml` publishes the repository on every push to `main`.
+
+There is no build step. The workflow checks the repo out, uploads it as-is, and hands it to Pages,
+so what is in `main` is what is live. To deploy without changing anything, open the **Actions** tab,
+pick **Deploy to GitHub Pages**, and use **Run workflow**.
+
+Watch a deploy in the **Actions** tab. A green check means it published; the run log says where.
 
 ### The custom domain
 

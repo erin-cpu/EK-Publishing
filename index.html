@@ -293,13 +293,39 @@ section .wrap{padding-block:clamp(3.25rem,7vw,5.5rem)}
 .names{font-size:var(--s-3);letter-spacing:-.02em}
 .names .amp{font-style:italic;color:var(--gold)}
 .pups{
-  margin-top:1.75rem;
+  margin:1.75rem 0 0;
   padding:1.25rem 1.5rem;
   border-left:2px solid var(--gold);
   background:var(--paper);
   color:var(--muted);
   font-size:calc(var(--s-0) * .97);
-  max-width:34rem;
+  max-width:37rem;
+  display:grid;
+  grid-template-columns:minmax(0,10rem) minmax(0,1fr);
+  gap:1.25rem 1.5rem;
+  align-items:center;
+}
+/* The frame stays 3:4. The photo is scaled up inside it and clipped, which
+   crops the lawn away without disturbing the layout. The transform origin
+   sits on the dogs so they stay put as it zooms. */
+.pups__shot{
+  display:block;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  min-width:0;
+}
+.pups__shot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.25);
+  transform-origin:48% 80%;
+}
+.pups figcaption{min-width:0}
+@media (max-width:560px){
+  .pups{grid-template-columns:minmax(0,1fr)}
+  .pups__shot{max-width:13rem}
 }
 .pups b{font-family:var(--display);color:var(--fg);font-weight:500}
 
@@ -502,7 +528,10 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:
         <p>We're a married couple who run a small publishing service, which means your project is not being passed between departments. You work with us, and we've been doing this for eight years with a wide range of authors and companies &mdash; first books and fifth books, memoirs, business books, legacy projects, the ones nobody else knew how to categorize.</p>
         <p class="quiet">We are here to be collaborative guides through the process. We will share our insights, but the decisions remain yours.</p>
       </div>
-      <p class="pups">Also on staff: <b>Maple</b> and <b>Willow</b>, two rescue pups, who attend every meeting, review nothing, and have never once missed a deadline they were aware of.</p>
+      <figure class="pups">
+        <span class="pups__shot"><img src="maple-willow.jpg" alt="Maple on the left, grinning with tongue out, and Willow on the right, wearing a collar tag, sitting together on a sunlit lawn" width="1125" height="1500"></span>
+        <figcaption>Also on staff: <b>Maple</b> and <b>Willow</b>, two rescue pups, who attend every meeting, review nothing, and have never once missed a deadline they were aware of.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
